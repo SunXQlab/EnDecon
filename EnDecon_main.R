@@ -4,15 +4,19 @@ EnDecon_main <- function(sc_data, st_data, python_path){
   
   DeconResults <- list()
   
+  # run RCTD 
+  
   RCTD_result <- RCTD_pipeline(sc_data = sc_data,
                                st_data = st_data)
+  
+  # run spatialDWLS
   
   spatialDWLS_result <- spatialDWLS_pipeline(sc_obj = sc_data,
                                              st_obj = st_data,
                                              python_path = python_path)
   
   # run cell2location
-  #data process
+  # data process
   
   path_ls <- cell2loc_process(sc_data,st_data)
   
