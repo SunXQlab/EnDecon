@@ -20,12 +20,7 @@ EnDecon_main <- function(sc_data, st_data, python_path){
   sc_cnt_path = path_ls[[2]]
   sc_mta_path = path_ls[[1]]
   
-  # run cell2location
-  library(reticulate)
-  
   use_python(python_path)
-  source_python("D:/AA-luluyan-phd/code/EnDecon_R/cell2location_main.py")
-  
   WorkDir <- paste0("./deconvolution_results/decon_", "cell2location")
   dir.create(WorkDir, recursive = TRUE, showWarnings = F)
   cat(paste0("WorkDir: ", WorkDir, "\n"))
