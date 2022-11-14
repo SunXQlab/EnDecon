@@ -1,5 +1,6 @@
 spatialDWLS_pipeline <- function(sc_obj, st_obj,python_path){
   
+  output_path  = getwd()
   #spatialDWLS deconvolution
   
   library(Giotto)
@@ -91,9 +92,13 @@ spatialDWLS_pipeline <- function(sc_obj, st_obj,python_path){
   decon_mtrx <- column_to_rownames(decon_mtrx,var="cell_ID")
   decon_mtrx <- as.matrix(decon_mtrx)
   
-  # write.table(st_data@spatial_enrichment$DWLS, 
-  #           paste0(output_path, '/SpatialDWLS_result.csv'),
-  #           row.names = FALSE, col.names = TRUE, sep=",")
+  WorkDir <- paste0(output_path,"/deconvolution_results/decon_", "spatialDWLS")
+  dir.create(WorkDir, recursive = TRUE, showWarnings = F)
+  cat(paste0("WorkDir: ", WorkDir, "\n"))
+  
+  write.table(decon_mtrx,
+              paste0(WorkDir, '/decon_result.csv'),
+              row.names = TRUE, col.names = TRUE, sep=",")
   
   runtime <- (proc.time() - ptm)/60
   memory <- mem_used()
