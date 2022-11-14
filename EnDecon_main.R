@@ -49,6 +49,13 @@ EnDecon_main <- function(sc_data, st_data, python_path){
   w <- data.frame(cell2location = 0.651577272, RCTD = 0.111148121, spatialDWLS = 0.237274608)
   EnDecon_result <- w[1,1]*DeconResults[[1]] + w[1,2]*DeconResults[[2]] + w[1,3]*DeconResults[[3]]
   
+  WorkDir <- paste0("./deconvolution_results/decon_", "EnDecon")
+  dir.create(WorkDir, recursive = TRUE, showWarnings = F)
+  cat(paste0("WorkDir: ", WorkDir, "\n"))
+  write.table(EnDecon_result,
+              paste0(WorkDir, '/decon_result.csv'),
+              row.names = TRUE, col.names = TRUE, sep=",")
+  
   DeconResults[[4]] <- EnDecon_result
   
   return(DeconResults)
