@@ -1,5 +1,6 @@
 EnDecon_main <- function(sc_data, st_data, python_path){
   
+  output_path = getwd()
   ## EnDecon three methods
   
   DeconResults <- list()
@@ -25,7 +26,7 @@ EnDecon_main <- function(sc_data, st_data, python_path){
   sc_mta_path = path_ls[[1]]
   
   use_python(python_path)
-  WorkDir <- paste0("./deconvolution_results/decon_", "cell2location")
+  WorkDir <- paste0(outpath_path, "./deconvolution_results/decon_", "cell2location")
   dir.create(WorkDir, recursive = TRUE, showWarnings = F)
   cat(paste0("WorkDir: ", WorkDir, "\n"))
   means_cell_abun <- cell2location_main(sc_cnt_dir = sc_cnt_path,
@@ -53,7 +54,7 @@ EnDecon_main <- function(sc_data, st_data, python_path){
   w <- data.frame(cell2location = 0.651577272, RCTD = 0.111148121, spatialDWLS = 0.237274608)
   EnDecon_result <- w[1,1]*DeconResults[[1]] + w[1,2]*DeconResults[[2]] + w[1,3]*DeconResults[[3]]
   
-  WorkDir <- paste0("./deconvolution_results/decon_", "EnDecon")
+  WorkDir <- paste0(output_path, "./deconvolution_results/decon_", "EnDecon")
   dir.create(WorkDir, recursive = TRUE, showWarnings = F)
   cat(paste0("WorkDir: ", WorkDir, "\n"))
   write.table(EnDecon_result,
