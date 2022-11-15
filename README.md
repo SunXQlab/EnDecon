@@ -35,7 +35,10 @@ library(reticulate)
 library(philentropy)
 ```
 ### Input data
+
+```
 sc_data <- readRDS("D:/AA-luluyan-phd/code/benchmark_github/synthetic_st_dataset/MERFISH_singlecell_dataset.rds")
 st_data <- readRDS("D:/AA-luluyan-phd/code/benchmark_github/synthetic_st_dataset/MERFISH_spatialspot_dataset.rds")
+```
 
 
