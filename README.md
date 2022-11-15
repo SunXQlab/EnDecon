@@ -44,6 +44,7 @@ We then read the scRNA-seq data with behavioral genes, columns as cells and ST d
 ```
 # read scRNA-seq data
 sc_data <- readRDS("./MERFISH_singlecell_dataset.rds")
+sc_data@assays$RNA@counts <- round(sc_data@assays$RNA@counts)
 
 # read ST data
 st_data <- readRDS("./MERFISH_spatialspot_dataset.rds")
