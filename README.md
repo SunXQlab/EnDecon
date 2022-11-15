@@ -40,7 +40,7 @@ library(reticulate)
 library(philentropy)
 ```
 ### Input data
-We then read the scRNA-seq data with behavioral genes, columns as cells and ST data with behavioral genes, columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class. For ST data, the seurat object needs to contain the coordinate information of each spot.
+We then read the scRNA-seq data with behavioral genes, columns as cells and ST data with behavioral genes, columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class and count.data needs to be integer. For ST data, the seurat object needs to contain the coordinate information of each spot.
 ```
 # read scRNA-seq data
 sc_data <- readRDS("./MERFISH_singlecell_dataset.rds")
