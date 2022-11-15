@@ -69,6 +69,6 @@ EnDecon_main <- function(sc_data, st_data, python_path){
               row.names = TRUE, col.names = TRUE, sep=",")
 
   DeconResults[[4]] <- EnDecon_result
-
+  names(DeconResults) <- c("cell2location","RCTD","spatialDWLS","EnDecon")
   return(DeconResults)
 }
