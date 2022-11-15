@@ -50,14 +50,3 @@ source_python('./EnDecon/cell2location_main.py)
 result <- EnDecon_main(sc_data = sc_data ,st_data = st_data,python_path = "D:/Anaconda3/envs/cell2loc_env")
 ```
 The EnDecon `result` includes the deconvolution results of four methods, namely cell2location, RCTD, spatialDWLS, and EnDecon.
-
-### Benchamrking
-If your ST data contains known cell type composition for each spot, you can use the `benhcmark_performance.R` function to evalutae the performance of these four methods on your own dataset.
-```
-# benchmarking
-EnDecon_result <- result$EnDecon 
-ground_truth <- st_data@meta.data[,7:15] %>% as.matrix(.)
-ground_truth <- ground_truth[rownames(EnDecon_result),]
-EnDecon_result <- EnDecon_result[,colnames(ground_truth)]
-metric <- benchmark_performance(ground_truth_mtrx = ground_truth, deconvoluted_mtrx = EnDecon_result)
-```
