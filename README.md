@@ -9,4 +9,10 @@ EnDecon is an R package developed to deconvolute spatial transcriptome (ST) data
 ## 1. Preparation
 the cell2location, RCTD, and spatialDWLS packages should be installed before using EnDecon method.
 * For the detailed installation process of cell2location, please refer to https://github.com/BayraktarLab/cell2location#Installation
+* The installation process of RCTD can refer to https://github.com/dmcable/spacexr
+* The installation process of spatialDWLS can refer to https://rubd.github.io/Giotto_site/articles/tut0_giotto_environment.html
 
+## 2. Installation 
+Install EnDecon package from github:
+    install.package("devtools")
+    
