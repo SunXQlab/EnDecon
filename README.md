@@ -14,7 +14,8 @@ the cell2location, RCTD, and spatialDWLS packages should be installed before usi
 
 ## 2. Installation 
 Install EnDecon package from github:<br> 
-```install.package("devtools")
+```
+install.package("devtools")
 library(devtools)
 devtools::install_github("SunLab/EnDecon")
 library(EnDecon)
