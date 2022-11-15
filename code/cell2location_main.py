@@ -65,7 +65,7 @@ def cell2location_main(sc_cnt_dir, sc_mta_dir,st_cnt_dir):
   mod = RegressionModel(adata_ref)
   
   # Use all data for training (validation not implemented yet, train_size=1)
-  mod.train(max_epochs=5, batch_size=2500, train_size=1, lr=0.002, use_gpu=False)
+  mod.train(max_epochs=250, batch_size=2500, train_size=1, lr=0.002, use_gpu=False)
   
   # In this section, we export the estimated cell abundance (summary of the posterior distribution).
   adata_ref = mod.export_posterior(
@@ -112,7 +112,7 @@ def cell2location_main(sc_cnt_dir, sc_mta_dir,st_cnt_dir):
     detection_alpha=200
   )
   
-  mod.train(max_epochs=30, #30000
+  mod.train(max_epochs=30000, #30000
             # train using full data (batch_size=None)
             batch_size=None,
             # use all data points in training because
