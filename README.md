@@ -21,6 +21,8 @@ devtools::install_github("SunLab/EnDecon")
 library(EnDecon)
 ```
 ## 3. Example
+
+### Required packages
 We start by loading all required packages. `readr` package is used to read data; `Seurat` package is used to read and process data; `dplyr` and `tibble` are used to implement operations in the code; `pryr` is  used to calculate the memory consumed by the algorithm running; `reticulate` is  used to invoke python in R environment; `philentropy` is used to calculate Jensen-Shannon divergence (JSD).
 ```
 library(Seurat)
@@ -31,6 +33,6 @@ library(EnDecon)
 library(pryr)
 library(reticulate)
 library(philentropy)
-
 ```
+
 
