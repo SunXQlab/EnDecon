@@ -20,6 +20,11 @@ library(devtools)
 devtools::install_github("SunXQlab/EnDecon")
 library(EnDecon)
 ```
+or install scMLnet module from the source code:
+```
+install.packages("path/to/download/EnDecon_0.1.0.tar.gz", repos = NULL, type = "source")
+library(EnDecon)
+```
 ## 3. Example
 
 ### Required packages
