@@ -18,7 +18,7 @@ library(reticulate)
 library(philentropy)
 ```
 ### Source code
-We source the script files needed to run EnDecon。
+We source the scripts needed to run EnDecon.
 ```
 source("./code/EnDecon_main.R")
 source("./code/cell2loc_process.R")
@@ -36,9 +36,6 @@ sc_data <- readRDS("./MERFISH_singlecell_dataset.rds")
 st_data <- readRDS("./MERFISH_spatialspot_dataset.rds")
 ```
 ### Run EnDecon
-Before running EnDecon function, we need to source the `cell2location_main.py` function.
-```
-source_python('./EnDecon/cell2location_main.py)
 result <- EnDecon_main(sc_data = sc_data ,st_data = st_data,python_path = "D:/Anaconda3/envs/cell2loc_env")
 ```
 The EnDecon `result` includes the deconvolution results of four methods, namely cell2location, RCTD, spatialDWLS, and EnDecon.
