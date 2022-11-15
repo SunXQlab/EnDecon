@@ -13,6 +13,8 @@ the cell2location, RCTD, and spatialDWLS packages should be installed before usi
 * The installation process of spatialDWLS can refer to https://rubd.github.io/Giotto_site/articles/tut0_giotto_environment.html
 
 ## 2. Installation 
-Install EnDecon package from github:
+Install EnDecon package from github:<br> 
 ```install.package("devtools")```
-    
+```library(devtools)```
+```devtools::install_github("SunLab/EnDecon")```
+```library(EnDecon)```
