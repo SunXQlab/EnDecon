@@ -36,6 +36,7 @@ sc_data <- readRDS("./MERFISH_singlecell_dataset.rds")
 st_data <- readRDS("./MERFISH_spatialspot_dataset.rds")
 ```
 ### Run EnDecon
+```
 result <- EnDecon_main(sc_data = sc_data ,st_data = st_data,python_path = "D:/Anaconda3/envs/cell2loc_env")
 ```
 The EnDecon `result` includes the deconvolution results of four methods, namely cell2location, RCTD, spatialDWLS, and EnDecon.
