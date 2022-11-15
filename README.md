@@ -19,3 +19,4 @@ install.package("devtools")
 library(devtools)
 devtools::install_github("SunLab/EnDecon")
 library(EnDecon)
+```
