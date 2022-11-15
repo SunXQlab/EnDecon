@@ -17,4 +17,4 @@ Install EnDecon package from github:<br>
 ```install.package("devtools")
 library(devtools)
 devtools::install_github("SunLab/EnDecon")
-library(EnDecon)```
+library(EnDecon)
