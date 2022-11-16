@@ -50,11 +50,13 @@ https://www.dropbox.com/s/azjysbt7lbpmbew/brain_st_cortex.rds?dl=0
 ```
 # read scRNA-seq data
 sc_data <- readRDS("./brain_sc.rds")
-sc_data@meta.data$Cell_class <- sc_data@meta.data$subclass
+sc_data@meta.data$Cell_class <- gsub("/",".",sc_data@meta.data$subclass)
 #sc_data@assays$RNA@counts <- round(sc_data@assays$RNA@counts)
 
 # read ST data
 st_data <- readRDS("./brain_st_cortex.rds") 
+st_data@images$coordinates = data.frame(x=st_data@images$anterior1@coordinates$row,
+                                        y=st_data@images$anterior1@coordinates$col)
 ```
 ### Run EnDecon
 Before running EnDecon function, we need to source the `cell2location_main.py` function.
