@@ -25,7 +25,7 @@ or install scMLnet module from the source code:
 install.packages("path/to/download/EnDecon/EnDecon_0.1.0.tar.gz", repos = NULL, type = "source")
 library(EnDecon)
 ```
-## 3. Example
+## 3. Demonstration
 
 ### Required packages
 We start by loading all required packages. `readr` package is used to read data; `Seurat` package is used to read and process data; `dplyr` and `tibble` are used to implement operations in the code; `pryr` is  used to calculate the memory consumed by the algorithm running; `reticulate` is  used to invoke python in R environment; `philentropy` is used to calculate Jensen-Shannon divergence (JSD).
@@ -42,18 +42,19 @@ library(philentropy)
 ### Input data
 We then read the scRNA-seq data with rows as genes and columns as cells and ST data with raws as genes and columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class and count.data needs to be integer. For ST data, the seurat object needs to contain the coordinate information of each spot.
 
+#### Example dataset
 You can download the scRNA-seq data here:<br>
 https://www.dropbox.com/s/ruseq3necn176c7/brain_sc.rds?dl=0 <br>
 You can download the ST data here:<br>
 https://www.dropbox.com/s/azjysbt7lbpmbew/brain_st_cortex.rds?dl=0
 ```
 # read scRNA-seq data
-sc_data <- readRDS("./brain_st_cortex.rds")
+sc_data <- readRDS("./brain_sc.rds")
 sc_data@meta.data$Cell_class <- sc_data@meta.data$subclass
 #sc_data@assays$RNA@counts <- round(sc_data@assays$RNA@counts)
 
 # read ST data
-st_data <- readRDS("./brain_sc.rds")
+st_data <- readRDS("./brain_st_cortex.rds") 
 ```
 ### Run EnDecon
 Before running EnDecon function, we need to source the `cell2location_main.py` function.
