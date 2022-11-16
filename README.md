@@ -42,9 +42,9 @@ library(philentropy)
 ### Input data
 We then read the scRNA-seq data with rows as genes and columns as cells and ST data with raws as genes and columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class and count.data needs to be integer. For ST data, the seurat object needs to contain the coordinate information of each spot.
 
-You can download the scRNA-seq data here:
+You can download the scRNA-seq data here:<br>
 https://www.dropbox.com/s/ruseq3necn176c7/brain_sc.rds?dl=0 <br>
-You can download the ST data here:
+You can download the ST data here:<br>
 https://www.dropbox.com/s/azjysbt7lbpmbew/brain_st_cortex.rds?dl=0
 ```
 # read scRNA-seq data
