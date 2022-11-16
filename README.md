@@ -61,6 +61,7 @@ st_data@images$coordinates = data.frame(x=st_data@images$anterior1@coordinates$r
 ### Run EnDecon
 Before running EnDecon function, we need to source the `cell2location_main.py` function.
 ```
+use_python("D:/Anaconda3/envs/cell2loc_env")
 source_python('./EnDecon/cell2location_main.py)
 result <- EnDecon_main(sc_data = sc_data ,st_data = st_data,python_path = "D:/Anaconda3/envs/cell2loc_env")
 ```
