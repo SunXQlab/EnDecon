@@ -26,13 +26,24 @@ source("./code/spatialDWLS_pipeline.R")
 source_python("./code/cell2location_main.py")
 ```
 ### Input data
-We then read the scRNA-seq data with behavioral genes, columns as cells and ST data with behavioral genes, columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class. For ST data, the seurat object needs to contain the coordinate information of each spot.
+We then read the scRNA-seq data with rows as genes and columns as cells and ST data with raws as genes and columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class. For ST data, the seurat object needs to contain the coordinate information of each spot.
+
+#### Example dataset
+You can download the scRNA-seq data here:<br>
+https://www.dropbox.com/s/ruseq3necn176c7/brain_sc.rds?dl=0<br>
+You can download the ST data here:<br>
+https://www.dropbox.com/s/azjysbt7lbpmbew/brain_st_cortex.rds?dl=0
+
 ```
 # read scRNA-seq data
-sc_data <- readRDS("./MERFISH_singlecell_dataset.rds")
+sc_data <- readRDS("./brain_sc.rds")
+sc_data@meta.data$Cell_class <- gsub("/",".",sc_data@meta.data$subclass)
+#sc_data@assays$RNA@counts <- round(sc_data@assays$RNA@counts)
 
 # read ST data
-st_data <- readRDS("./MERFISH_spatialspot_dataset.rds")
+st_data <- readRDS("./brain_st_cortex.rds") 
+st_data@images$coordinates = data.frame(x=st_data@images$anterior1@coordinates$row,
+                                        y=st_data@images$anterior1@coordinates$col)
 ```
 ### Run EnDecon
 ```
