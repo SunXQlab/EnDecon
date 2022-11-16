@@ -40,14 +40,19 @@ library(reticulate)
 library(philentropy)
 ```
 ### Input data
-We then read the scRNA-seq data with behavioral genes, columns as cells and ST data with behavioral genes, columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class and count.data needs to be integer. For ST data, the seurat object needs to contain the coordinate information of each spot.
+We then read the scRNA-seq data with rows as genes and columns as cells and ST data with raws as genes and columns as spots, requiring scRNA-seq data and ST data as seurat objects. For scRNA-seq data, the cell type annotation in meta.data needs to be named Cell_class and count.data needs to be integer. For ST data, the seurat object needs to contain the coordinate information of each spot.
+
+You can download the scRNA-seq data here:
+https://www.dropbox.com/s/ruseq3necn176c7/brain_sc.rds?dl=0
+You can download the ST data here:
+https://www.dropbox.com/s/azjysbt7lbpmbew/brain_st_cortex.rds?dl=0
 ```
 # read scRNA-seq data
-sc_data <- readRDS("./MERFISH_singlecell_dataset.rds")
+sc_data <- readRDS("./brain_st_cortex.rds")
 sc_data@assays$RNA@counts <- round(sc_data@assays$RNA@counts)
 
 # read ST data
-st_data <- readRDS("./MERFISH_spatialspot_dataset.rds")
+st_data <- readRDS("./brain_sc.rds")
 ```
 ### Run EnDecon
 Before running EnDecon function, we need to source the `cell2location_main.py` function.
