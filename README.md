@@ -49,7 +49,8 @@ https://www.dropbox.com/s/azjysbt7lbpmbew/brain_st_cortex.rds?dl=0
 ```
 # read scRNA-seq data
 sc_data <- readRDS("./brain_st_cortex.rds")
-sc_data@assays$RNA@counts <- round(sc_data@assays$RNA@counts)
+sc_data@meta.data$Cell_class <- sc_data@meta.data$subclass
+#sc_data@assays$RNA@counts <- round(sc_data@assays$RNA@counts)
 
 # read ST data
 st_data <- readRDS("./brain_sc.rds")
