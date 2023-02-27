@@ -22,9 +22,10 @@ library(EnDecon)
 ```
 or install EnDecon module from the source code:
 ```
-install.packages("path/to/download/EnDecon-main/EnDecon_0.1.0.tar.gz", repos = NULL, type = "source") # "path/to/download" is your personal download path
+install.packages("path/to/download/EnDecon-main/EnDecon_0.1.0.tar.gz", repos = NULL, type = "source") # "path/to/download" is your personal download "EnDecon-main.zip" path
 library(EnDecon)
 ```
+
 ## 3. Demonstration
 
 ### Required packages
